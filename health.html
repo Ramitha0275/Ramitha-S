@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeartRisk Predictor</title>
+ <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ff6f61, #f7b733);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #d9376e;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  border-color: #ff6f61;
+  outline: none;
+}
+
+button {
+  background-color: #d9376e;
+  color: white;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #bf2d59;
+}
+ </style>
+</head>
+<body>
+  <div class="container">
+    <h1>❤️ HeartRisk Predictor</h1>
+    {% if result %}
+  <h2>Prediction Result: {{ result }}</h2>
+{% endif %}
+    <form action="/predict" method="POST" >
+      <div class="form-group"><label>Age</label><input type="number" name="age" step="any" required /></div>
+      <div class="form-group"><label>Anaemia</label><input type="number" name="anaemia" step="any" required /></div>
+      <div class="form-group"><label>Creatinine Phosphokinase</label><input type="number" name="creatinine_phosphokinase" step="any" required /></div>
+      <div class="form-group"><label>Diabetes</label><input type="number" name="diabetes" step="any" required /></div>
+      <div class="form-group"><label>Ejection Fraction</label><input type="number" name="ejection_fraction" step="any" required /></div>
+      <div class="form-group"><label>High Blood Pressure</label><input type="number" name="high_blood_pressure" step="any" required /></div>
+      <div class="form-group"><label>Platelets</label><input type="number" name="platelets" step="any" required /></div>
+      <div class="form-group"><label>Serum Creatinine</label><input type="number" name="serum_creatinine" step="any" required /></div>
+      <div class="form-group"><label>Serum Sodium</label><input type="number" name="serum_sodium" step="any" required /></div>
+      <div class="form-group"><label>Sex</label><input type="number" name="sex" step="any" required /></div>
+      <div class="form-group"><label>Smoking</label><input type="number" name="smoking" step="any" required /></div>
+      <div class="form-group"><label>Time</label><input type="number" name="time" step="any" required /></div>
+      <button type="submit">🩺 Predict Risk</button>
+    </form>
+  </div>
+  
+</body>
+</html>
